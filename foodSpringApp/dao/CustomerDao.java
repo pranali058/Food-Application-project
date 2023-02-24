@@ -1,5 +1,8 @@
 package com.food.foodSpringApp.dao;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,5 +16,22 @@ public class CustomerDao {
   
   public Customer saveCustomer(Customer customer) {
 	  return customerRepo.save(customer);
+  }
+  
+  public Optional<Customer> getCustomerById(int id) {
+	  return customerRepo.findById(id);
+  }
+  
+	
+	  public List<Customer> getAllCustomer() {
+		  return customerRepo.findAll(); }
+	 
+  
+  public Customer updateCustomer(Customer customer) {
+	  return customerRepo.save(customer);
+  }
+  
+  public void deleteCustomer(int id) {
+	  customerRepo.deleteById(id);
   }
 }

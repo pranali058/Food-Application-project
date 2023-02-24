@@ -30,17 +30,15 @@ public class ProductController {
 		return productDao.saveProduct(product);
 	}
 	
-	
-	
-	
-	
-	/*
-	 * @GetMapping public Product getProductById(@RequestParam int id) {
-	 * Optional<Product>po=productDao.getProductById(id); if(po.isEmpty()) { return
-	 * null; }else { return po.get(); } }
-	 */
+	  @GetMapping("/{id}")
+	  public Product getProductById(@PathVariable int id) {
+	  Optional<Product>po=productDao.getProductById(id); 
+	  if(po.isPresent()) { 
+	       return po.get(); }
+	  else {
+		  return null; } 
+	  }
 	 
-	
 	@GetMapping
 	public List<Product> getAll() {
 		return productDao.getAllProduct();
@@ -51,10 +49,10 @@ public class ProductController {
 		return productDao.updateProduct(pro);
 	}
 	
-	/*
-	 * @DeleteMapping public String deleteProduct(@RequestParam int id) {
-	 * Optional<Product>op=productDao.getProductById(id); if (op.isPresent()) {
-	 * productDao.deletePro(id); return "prouct data deleted"; } else { return
-	 * "product data not found"; } }
-	 */
+	
+	  @DeleteMapping public String deleteProduct(@RequestParam int id) {
+	  Optional<Product>op=productDao.getProductById(id); if (op.isPresent()) {
+	  productDao.deletePro(id); return "prouct data deleted"; } else { return
+	  "product data not found"; } }
+	 
 }

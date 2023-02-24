@@ -2,6 +2,7 @@ package com.food.foodSpringApp.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,4 +36,17 @@ public class FoodOrderDao {
 	}
 	return foodOrder;
 }
+	public Optional<FoodOrder> getFoodOrder(int id) {
+		return foodOrderRepo.findById(id);
+	}
+	public List<FoodOrder> getAllFoodOrder() {
+		return foodOrderRepo.findAll();
+	}
+	
+	public FoodOrder updateFoodOrder(FoodOrder foodOrder) {
+		return foodOrderRepo.save(foodOrder);
+	}
+	public void deleteFoodOrder(int id) {
+		foodOrderRepo.deleteById(id);
+	}
 }

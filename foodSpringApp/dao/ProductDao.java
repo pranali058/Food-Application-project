@@ -21,11 +21,11 @@ public class ProductDao {
 	
 	
 	
-	/*
-	 * public Optional<Product> getProductById(int id) { return
-	 * productRepo.findById(id); }
-	 * 
-	 */
+	
+	  public Optional<Product> getProductById(int id) { 
+		 return productRepo.findById(id); }
+	  
+	 
 	
 	public List<Product> getAllProduct() {
 		return productRepo.findAll();
